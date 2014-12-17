@@ -1,15 +1,22 @@
-## Put comments here that give an overall description of what your
-## functions do
+## makeCacheMatrix takes as its argument a square matrix x   
 
-## Write a short comment describing this function
+## 
 
 makeCacheMatrix <- function(x = matrix()) {
-
+        ## The inverse of x is initially set to NULL
+        xinverse <- NULL 
+        set <- function(y) {
+                x <<- y
+                xinverse <<- NULL
+            
 }
+##  Create the list of set and get functions needed for cacheSolve
 
+get <- function() x
+setinverse <- function(solve) xinverse <<- solve
+getinverse <- function() xinverse
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+list(set = set, get = get,
+     setinverse = setinverse,
+     getinverse = getinverse)
 }
